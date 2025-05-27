@@ -9,7 +9,7 @@
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
       background-color: #f4f4f4;
-      background-image: url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill-opacity="0.06"%3E%3Ctext x="0" y="10" font-size="12"%3EH%3C/text%3E%3Ctext x="20" y="30" font-size="10"%3ENH3%3C/text%3E%3Ctext x="10" y="20" font-size="14"%3E⚛%3C/text%3E%3C/g%3E%3C/svg%3E');
+      background-image: url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill-opacity="0.06"%3E%3Ctext x="0" y="10" font-size="12"%3EH%3C/text%3E%3Ctext x="20" y="30" font-size="10"%3ENH3%3C/text%3E%3Ctext x="10" y="20" font-size="14"%3E%E2%9A%9B%3C/text%3E%3C/g%3E%3C/svg%3E');
     }
     .container {
       max-width: 900px;
@@ -17,20 +17,31 @@
       padding: 20px;
     }
     .element {
-      margin: 30px 0;
+      margin: 40px 0;
     }
     .element-title {
       font-size: 28px;
       font-weight: 700;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
     .element-info {
       background-color: #fff;
       border-radius: 12px;
-      padding: 16px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 20px;
       font-weight: 500;
       line-height: 1.6;
+    }
+    .element-usage {
+      margin-top: 10px;
+      font-style: italic;
+      font-size: 14px;
+      opacity: 0.85;
+    }
+    .element-image {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-bottom: 12px;
     }
     .bg-1 { background-color: #cfe2f3; }
     .bg-2 { background-color: #d9ead3; }
@@ -60,6 +71,7 @@
     <div class="element">
       <div class="element-title">1. HİDROJEN</div>
       <div class="element-info bg-1">
+        <img class="element-image" src="https://cdn-icons-png.flaticon.com/512/189/189001.png" alt="Hidrojen">
         Sembol: H<br>
         Atom Numarası: 1<br>
         Atomik Ağırlık: Yaklaşık 1.008 g/mol<br>
@@ -68,12 +80,14 @@
         Erime Noktası: -259.16°C<br>
         Kaynama Noktası: -252.87°C<br>
         Durumu: Standart sıcaklık ve basınçta gaz halinde bulunur.
+        <div class="element-usage">Kullanım Alanları: Yakıt hücrelerinde enerji üretimi, uzay roketlerinde yakıt olarak kullanılır.</div>
       </div>
     </div>
 
     <div class="element">
       <div class="element-title">2. HELYUM</div>
       <div class="element-info bg-2">
+        <img class="element-image" src="https://cdn-icons-png.flaticon.com/512/189/189003.png" alt="Helyum">
         Sembol: He<br>
         Atom Numarası: 2<br>
         Atomik Ağırlık: Yaklaşık 4.0026 g/mol<br>
@@ -82,10 +96,11 @@
         Erime Noktası: -272.2°C<br>
         Kaynama Noktası: -268.93°C<br>
         Durumu: Soy gaz, reaktif değildir.
+        <div class="element-usage">Kullanım Alanları: Balonlarda, hava taşıtlarında ve soğutma sistemlerinde kullanılır.</div>
       </div>
     </div>
 
-    <!-- Devamı gelecektir: 3 - 20. elementler benzer yapıda eklenecek -->
+    <!-- Diğer 3-20 elementler aynı yapıda eklenecek -->
 
   </div>
 </body>
