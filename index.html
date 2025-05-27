@@ -67,41 +67,43 @@
 </head>
 <body>
   <div class="container">
+<!-- Elementler JS ile yüklenecek -->
+<script>
+const elements = [
+  {
+    title: "1. HİDROJEN",
+    bg: "bg-1",
+    image: "https://cdn.jsdelivr.net/gh/ethryx/icons/1.png",
+    info: `Sembol: H<br>Atom Numarası: 1<br>Atomik Ağırlık: Yaklaşık 1.008 g/mol<br>Elektron Dizilimi: 1s¹<br>Yoğunluk: 0.08988 g/L (standart koşullarda)<br>Erime Noktası: -259.16°C<br>Kaynama Noktası: -252.87°C<br>Durumu: Gaz` ,
+    usage: "Yakıt hücrelerinde enerji üretimi, roket yakıtı"
+  },
+  {
+    title: "2. HELYUM",
+    bg: "bg-2",
+    image: "https://cdn.jsdelivr.net/gh/ethryx/icons/2.png",
+    info: `Sembol: He<br>Atom Numarası: 2<br>Atomik Ağırlık: 4.0026 g/mol<br>Elektron Dizilimi: 1s²<br>Yoğunluk: 0.1786 g/L<br>Erime Noktası: -272.2°C<br>Kaynama Noktası: -268.93°C<br>Durumu: Gaz`,
+    usage: "Balon gazı, soğutma sistemleri"
+  },
+  // 3-20 element buraya aynı yapıyla eklenecek
+];
 
-    <div class="element">
-      <div class="element-title">1. HİDROJEN</div>
-      <div class="element-info bg-1">
-        <img class="element-image" src="https://cdn-icons-png.flaticon.com/512/189/189001.png" alt="Hidrojen">
-        Sembol: H<br>
-        Atom Numarası: 1<br>
-        Atomik Ağırlık: Yaklaşık 1.008 g/mol<br>
-        Elektron Dizilimi: 1s¹<br>
-        Yoğunluk: 0.08988 g/L (standart koşullarda)<br>
-        Erime Noktası: -259.16°C<br>
-        Kaynama Noktası: -252.87°C<br>
-        Durumu: Standart sıcaklık ve basınçta gaz halinde bulunur.
-        <div class="element-usage">Kullanım Alanları: Yakıt hücrelerinde enerji üretimi, uzay roketlerinde yakıt olarak kullanılır.</div>
-      </div>
+const container = document.querySelector('.container');
+
+for (let i = 0; i < elements.length; i++) {
+  const el = elements[i];
+  const div = document.createElement('div');
+  div.className = 'element';
+  div.innerHTML = `
+    <div class="element-title">${el.title}</div>
+    <div class="element-info ${el.bg}">
+      <img class="element-image" src="${el.image}" alt="${el.title}">
+      ${el.info}
+      <div class="element-usage">Kullanım Alanları: ${el.usage}</div>
     </div>
-
-    <div class="element">
-      <div class="element-title">2. HELYUM</div>
-      <div class="element-info bg-2">
-        <img class="element-image" src="https://cdn-icons-png.flaticon.com/512/189/189003.png" alt="Helyum">
-        Sembol: He<br>
-        Atom Numarası: 2<br>
-        Atomik Ağırlık: Yaklaşık 4.0026 g/mol<br>
-        Elektron Dizilimi: 1s²<br>
-        Yoğunluk: 0.1786 g/L (standart koşullarda)<br>
-        Erime Noktası: -272.2°C<br>
-        Kaynama Noktası: -268.93°C<br>
-        Durumu: Soy gaz, reaktif değildir.
-        <div class="element-usage">Kullanım Alanları: Balonlarda, hava taşıtlarında ve soğutma sistemlerinde kullanılır.</div>
-      </div>
-    </div>
-
-    <!-- Diğer 3-20 elementler aynı yapıda eklenecek -->
-
-  </div>
+  `;
+  container.appendChild(div);
+}
+</script>
+</div>
 </body>
 </html>
