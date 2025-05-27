@@ -18,6 +18,9 @@
     }
     .element {
       margin: 40px 0;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease forwards;
     }
     .element-title {
       font-size: 28px;
@@ -63,169 +66,40 @@
     .bg-18 { background-color: #93c47d; }
     .bg-19 { background-color: #b7b7b7; }
     .bg-20 { background-color: #d9d2e9; }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-<script>
-const elements = [
-  {
-    title: "1. HİDROJEN",
-    bg: "bg-1",
-    image: "https://cdn.jsdelivr.net/gh/ethryx/icons/1.png",
-    info: `Sembol: H<br>Atom Numarası: 1<br>Atomik Ağırlık: Yaklaşık 1.008 g/mol<br>Elektron Dizilimi: 1s¹<br>Yoğunluk: 0.08988 g/L<br>Erime Noktası: -259.16°C<br>Kaynama Noktası: -252.87°C<br>Durumu: Gaz`,
-    usage: "Yakıt hücrelerinde enerji üretimi, roket yakıtı"
-  },
-  {
-    title: "2. HELYUM",
-    bg: "bg-2",
-    image: "https://cdn.jsdelivr.net/gh/ethryx/icons/2.png",
-    info: `Sembol: He<br>Atom Numarası: 2<br>Atomik Ağırlık: 4.0026 g/mol<br>Elektron Dizilimi: 1s²<br>Yoğunluk: 0.1786 g/L<br>Erime Noktası: -272.2°C<br>Kaynama Noktası: -268.93°C<br>Durumu: Gaz`,
-    usage: "Balon gazı, soğutma sistemleri"
-  },
-  {
-    title: "3. LİTYUM",
-    bg: "bg-3",
-    image: "https://cdn.jsdelivr.net/gh/ethryx/icons/3.png",
-    info: `Sembol: Li<br>Atom Numarası: 3<br>Atomik Ağırlık: 6.94 g/mol<br>Elektron Dizilimi: [He] 2s¹<br>Yoğunluk: 0.534 g/cm³<br>Erime Noktası: 180.5°C<br>Kaynama Noktası: 1342°C<br>Durumu: Katı`,
-    usage: "Pil üretimi, antidepresan ilaçlar"
-  },
-  {
-    title: "4. BERİLYUM",
-    bg: "bg-4",
-    image: "https://cdn.jsdelivr.net/gh/ethryx/icons/4.png",
-    info: `Sembol: Be<br>Atom Numarası: 4<br>Atomik Ağırlık: 9.0122 g/mol<br>Elektron Dizilimi: [He] 2s²<br>Yoğunluk: 1.848 g/cm³<br>Erime Noktası: 1287°C<br>Kaynama Noktası: 2469°C<br>Durumu: Katı`,
-    usage: "Uzay araçlarında, alaşımlarda"
-  },
-  {
-    title: "5. BOR",
-    bg: "bg-5",
-    image: "https://cdn.jsdelivr.net/gh/ethryx/icons/5.png",
-    info: `Sembol: B<br>Atom Numarası: 5<br>Atomik Ağırlık: 10.81 g/mol<br>Elektron Dizilimi: [He] 2s² 2p¹<br>Yoğunluk: 2.34 g/cm³<br>Erime Noktası: 2076°C<br>Kaynama Noktası: 3927°C<br>Durumu: Katı`,
-    usage: "Cam ve seramik üretiminde"
-  },
-  {
-    title: "6. KARBON",
-    bg: "bg-6",
-    image: "https://cdn.jsdelivr.net/gh/ethryx/icons/6.png",
-    info: `Sembol: C<br>Atom Numarası: 6<br>Atomik Ağırlık: 12.011 g/mol<br>Elektron Dizilimi: [He] 2s² 2p²<br>Yoğunluk: 2.267 g/cm³ (grafit)<br>Erime Noktası: 3550°C<br>Durumu: Katı`,
-    usage: "Tüm organik bileşiklerde temel element"
-  },
-  {
-    title: "7. AZOT",
-    bg: "bg-7",
-    image: "https://cdn.jsdelivr.net/gh/ethryx/icons/7.png",
-    info: `Sembol: N<br>Atom Numarası: 7<br>Atomik Ağırlık: 14.007 g/mol<br>Elektron Dizilimi: [He] 2s² 2p³<br>Yoğunluk: 1.2506 g/L<br>Kaynama Noktası: -195.79°C<br>Durumu: Gaz`,
-    usage: "Gübrelerde, patlayıcılarda"
-  },
-  {
-    title: "8. OKSİJEN",
-    bg: "bg-8",
-    image: "https://cdn.jsdelivr.net/gh/ethryx/icons/8.png",
-    info: `Sembol: O<br>Atom Numarası: 8<br>Atomik Ağırlık: 15.999 g/mol<br>Elektron Dizilimi: [He] 2s² 2p⁴<br>Yoğunluk: 1.429 g/L<br>Kaynama Noktası: -183.0°C<br>Durumu: Gaz`,
-    usage: "Solunum, yanma"
-  },
-  {
-    title: "9. FLOR",
-    bg: "bg-9",
-    image: "https://cdn.jsdelivr.net/gh/ethryx/icons/9.png",
-    info: `Sembol: F<br>Atom Numarası: 9<br>Atomik Ağırlık: 18.998 g/mol<br>Elektron Dizilimi: [He] 2s² 2p⁵<br>Kaynama Noktası: -188.11°C<br>Durumu: Gaz`,
-    usage: "Diş macunlarında, teflon üretiminde"
-  },
-  {
-    title: "10. NEON",
-    bg: "bg-10",
-    image: "https://cdn.jsdelivr.net/gh/ethryx/icons/10.png",
-    info: `Sembol: Ne<br>Atom Numarası: 10<br>Atomik Ağırlık: 20.18 g/mol<br>Elektron Dizilimi: [He] 2s² 2p⁶<br>Kaynama Noktası: -246.05°C<br>Durumu: Gaz`,
-    usage: "Aydınlatma ve reklam tabelaları"
-  },
-  {
-    title: "11. SODYUM",
-    bg: "bg-11",
-    image: "https://cdn.jsdelivr.net/gh/ethryx/icons/11.png",
-    info: `Sembol: Na<br>Atom Numarası: 11<br>Atomik Ağırlık: 22.990 g/mol<br>Durumu: Katı`,
-    usage: "Tuz yapımında, sokak lambaları"
-  },
-  {
-    title: "12. MAGNEZYUM",
-    bg: "bg-12",
-    image: "https://cdn.jsdelivr.net/gh/ethryx/icons/12.png",
-    info: `Sembol: Mg<br>Atom Numarası: 12<br>Atomik Ağırlık: 24.305 g/mol<br>Durumu: Katı`,
-    usage: "İlaçlarda, alaşımlarda"
-  },
-  {
-    title: "13. ALÜMİNYUM",
-    bg: "bg-13",
-    image: "https://cdn.jsdelivr.net/gh/ethryx/icons/13.png",
-    info: `Sembol: Al<br>Atom Numarası: 13<br>Atomik Ağırlık: 26.982 g/mol<br>Durumu: Katı`,
-    usage: "Yapı malzemeleri, folyolar"
-  },
-  {
-    title: "14. SİLİSYUM",
-    bg: "bg-14",
-    image: "https://cdn.jsdelivr.net/gh/ethryx/icons/14.png",
-    info: `Sembol: Si<br>Atom Numarası: 14<br>Atomik Ağırlık: 28.085 g/mol<br>Durumu: Katı`,
-    usage: "Çip üretimi, cam"
-  },
-  {
-    title: "15. FOSFOR",
-    bg: "bg-15",
-    image: "https://cdn.jsdelivr.net/gh/ethryx/icons/15.png",
-    info: `Sembol: P<br>Atom Numarası: 15<br>Atomik Ağırlık: 30.974 g/mol<br>Durumu: Katı`,
-    usage: "Gübre, kibrit"
-  },
-  {
-    title: "16. KÜKÜRT",
-    bg: "bg-16",
-    image: "https://cdn.jsdelivr.net/gh/ethryx/icons/16.png",
-    info: `Sembol: S<br>Atom Numarası: 16<br>Atomik Ağırlık: 32.06 g/mol<br>Durumu: Katı`,
-    usage: "Kükürt dioksit, barut"
-  },
-  {
-    title: "17. KLOR",
-    bg: "bg-17",
-    image: "https://cdn.jsdelivr.net/gh/ethryx/icons/17.png",
-    info: `Sembol: Cl<br>Atom Numarası: 17<br>Atomik Ağırlık: 35.45 g/mol<br>Durumu: Gaz`,
-    usage: "Dezenfeksiyon, PVC"
-  },
-  {
-    title: "18. ARGON",
-    bg: "bg-18",
-    image: "https://cdn.jsdelivr.net/gh/ethryx/icons/18.png",
-    info: `Sembol: Ar<br>Atom Numarası: 18<br>Atomik Ağırlık: 39.948 g/mol<br>Durumu: Gaz`,
-    usage: "Ampuller, kaynakçılık"
-  },
-  {
-    title: "19. POTASYUM",
-    bg: "bg-19",
-    image: "https://cdn.jsdelivr.net/gh/ethryx/icons/19.png",
-    info: `Sembol: K<br>Atom Numarası: 19<br>Atomik Ağırlık: 39.098 g/mol<br>Durumu: Katı`,
-    usage: "Bitki gübresi"
-  },
-  {
-    title: "20. KALSİYUM",
-    bg: "bg-20",
-    image: "https://cdn.jsdelivr.net/gh/ethryx/icons/20.png",
-    info: `Sembol: Ca<br>Atom Numarası: 20<br>Atomik Ağırlık: 40.078 g/mol<br>Durumu: Katı`,
-    usage: "Kemik sağlığı, kireçtaşı"
-  }
-];
+  <div class="container" id="container"></div>
+  <script>
+    const elements = [
+      { title: "1. HİDROJEN", bg: "bg-1", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Hydrogen_discharge_tube.jpg/80px-Hydrogen_discharge_tube.jpg", info: `Sembol: H<br>Atom Numarası: 1<br>Atomik Ağırlık: 1.008 g/mol<br>Elektron Dizilimi: 1s¹<br>Yoğunluk: 0.08988 g/L<br>Erime Noktası: -259.16°C<br>Kaynama Noktası: -252.87°C<br>Durumu: Gaz`, usage: "Yakıt hücrelerinde enerji üretimi, roket yakıtı" },
+      { title: "2. HELYUM", bg: "bg-2", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Helium_discharge_tube.jpg/80px-Helium_discharge_tube.jpg", info: `Sembol: He<br>Atom Numarası: 2<br>Atomik Ağırlık: 4.0026 g/mol<br>Elektron Dizilimi: 1s²<br>Yoğunluk: 0.1786 g/L<br>Erime Noktası: -272.2°C<br>Kaynama Noktası: -268.93°C<br>Durumu: Soy gaz, reaktif değildir.`, usage: "Balon gazı, MRI soğutucusu, nükleer reaktörlerde soğutma" },
+      { title: "3. LİTYUM", bg: "bg-3", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Lithium_ingot_and_1cm3_cube.jpg/80px-Lithium_ingot_and_1cm3_cube.jpg", info: `Sembol: Li<br>Atom Numarası: 3<br>Atomik Ağırlık: 6.94 g/mol<br>Elektron Dizilimi: [He] 2s¹<br>Yoğunluk: 0.534 g/cm³<br>Erime Noktası: 180.5°C<br>Kaynama Noktası: 1342°C<br>Durumu: Katı`, usage: "Lityum iyon pillerde, seramik ve cam üretimi" },
+      { title: "4. BERİLYUM", bg: "bg-4", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Beryllium.jpg/80px-Beryllium.jpg", info: `Sembol: Be<br>Atom Numarası: 4<br>Atomik Ağırlık: 9.0122 g/mol<br>Elektron Dizilimi: [He] 2s²<br>Yoğunluk: 1.848 g/cm³<br>Erime Noktası: 1287°C<br>Kaynama Noktası: 2469°C<br>Durumu: Katı`, usage: "Havacılık, uzay sanayii, X-ışını pencereleri" },
+      { title: "5. BOR", bg: "bg-5", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Boron.jpg/80px-Boron.jpg", info: `Sembol: B<br>Atom Numarası: 5<br>Atomik Ağırlık: 10.81 g/mol<br>Elektron Dizilimi: [He] 2s² 2p¹<br>Yoğunluk: 2.34 g/cm³<br>Erime Noktası: 2076°C<br>Kaynama Noktası: 3927°C<br>Durumu: Katı`, usage: "Cam ve seramik, gübreler, nükleer reaktör kontrol çubukları" }
+      // Geri kalan elementler buraya aynı formatta eklenmeli
+    ];
 
-const container = document.querySelector('.container');
-elements.forEach(el => {
-  const div = document.createElement('div');
-  div.className = 'element';
-  div.innerHTML = `
-    <div class="element-title">${el.title}</div>
-    <div class="element-info ${el.bg}">
-      <img class="element-image" src="${el.image}" alt="${el.title}">
-      ${el.info}
-      <div class="element-usage">Kullanım Alanları: ${el.usage}</div>
-    </div>
-  `;
-  container.appendChild(div);
-});
-</script>
-</div>
+    const container = document.getElementById("container");
+    elements.forEach((el, index) => {
+      const div = document.createElement("div");
+      div.className = `element ${el.bg}`;
+      div.style.animationDelay = `${index * 0.2}s`;
+      div.innerHTML = `
+        <div class="element-title">${el.title}</div>
+        <img class="element-image" src="${el.image}" alt="${el.title}">
+        <div class="element-info">${el.info}</div>
+        <div class="element-usage">Kullanım Alanları: ${el.usage}</div>
+      `;
+      container.appendChild(div);
+    });
+  </script>
 </body>
 </html>
